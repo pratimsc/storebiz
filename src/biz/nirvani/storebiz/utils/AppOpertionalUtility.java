@@ -14,10 +14,8 @@ import org.simpleframework.xml.core.Persister;
 
 import biz.nirvani.storebiz.app.common.behaviour.ToUpperCaseBehaviour;
 
-import com.thoughtworks.xstream.XStream;
-
 public final class AppOpertionalUtility {
-	private static XStream xstream; 
+	@SuppressWarnings("unchecked")
 	public static void prepareFormComponents(FormComponent formComponent,
 			boolean isRequired, String label, int minimumLenght,
 			int maximumLenght, boolean hasFeedBackPanel) {

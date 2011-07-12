@@ -121,7 +121,7 @@ public class ManufacturerListingPage extends WebPage {
 		public Iterator<? extends ManufacturerViewModel> iterator(int first,
 				int count) {
 			if (manVMList == null) {
-				return new ArrayList().iterator();
+				return new ArrayList<ManufacturerViewModel>().iterator();
 			}
 
 			// Logic for sorting

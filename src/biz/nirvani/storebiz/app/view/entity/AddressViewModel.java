@@ -16,6 +16,10 @@ import com.google.appengine.api.datastore.Key;
 
 @Root
 public class AddressViewModel extends WebViewModel{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5149058843306255036L;
 	private Key gaeAddressKey;
 	@Element
 	private Key addressownerKey;

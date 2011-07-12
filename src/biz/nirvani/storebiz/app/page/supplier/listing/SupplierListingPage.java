@@ -119,7 +119,7 @@ public class SupplierListingPage extends WebPage {
 		public Iterator<? extends SupplierViewModel> iterator(int first,
 				int count) {
 			if (suppVMList == null) {
-				return new ArrayList().iterator();
+				return new ArrayList<SupplierViewModel>().iterator();
 			}
 
 			// Logic for sorting

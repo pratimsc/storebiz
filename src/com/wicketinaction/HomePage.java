@@ -49,10 +49,10 @@ public class HomePage extends WebPage
             @Override
             protected void onPopulateItem(ListItem<Phone> item)
             {
-                item.setModel(new CompoundPropertyModel(item.getModel()));
-                item.add(new TextField("areacode"));
-                item.add(new TextField("phone"));
-                item.add(new TextField("ext"));
+                item.setModel(new CompoundPropertyModel<Phone>(item.getModel()));
+                item.add(new TextField<String>("areacode"));
+                item.add(new TextField<String>("phone"));
+                item.add(new TextField<String>("ext"));
 
                 item.add(new RemoveButton("remove"));
             }
@@ -60,7 +60,12 @@ public class HomePage extends WebPage
 
         form.add(new Button("add")
         {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = -6539880843101419128L;
+
+			@Override
             public void onSubmit()
             {
                 editor.addItem(new Phone());

@@ -72,7 +72,7 @@ public class AddressEditablePanel extends FormComponentPanel<AddressEditablePane
 				new PropertyModel<List<AddressEditablePanelAddressLine>>(this, "addressModel.addressLines")) {
 			@Override
 			protected void onPopulateItem(ListItem<AddressEditablePanelAddressLine> item) {
-				item.setModel(new CompoundPropertyModel(item.getModel()));
+				item.setModel(new CompoundPropertyModel<AddressEditablePanelAddressLine>(item.getModel()));
 
 				TextField addressLineTxtFld = new TextField("addressLineValue");
 				item.add(addressLineTxtFld);
