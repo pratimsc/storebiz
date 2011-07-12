@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Supplier Registration</title>
+</head>
+<body>
+	<div wicket:id="feedback" />
+
+	<form wicket:id="supplierRegistrationForm">
+		<div>
+			<label id="supplierNameLabel" wicket:id="supplierNameLabel">supplierNameLabel</label> 
+			<input id="supplierName" wicket:id="supplierName"
+				type="text" />
+				<div wicket:id="supplierNameFeedbackPanel"></div>
+		</div>
+		<div>
+		<wicket:container wicket:id="supplierAddress"></wicket:container>
+		</div>
+		<input type="submit" value="submit" />
+	</form>
+</body>
+</html>

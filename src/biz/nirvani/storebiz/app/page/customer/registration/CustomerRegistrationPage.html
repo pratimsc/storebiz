@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	input.error{border: 2px solid red;}
+</style>
+</head>
+<body>
+	<div>
+		<h1>Registration</h1>
+	</div>
+
+	<div id="customerRegistrationForm01FeedBackPanel"
+		wicket:id="customerRegistrationForm01FeedBackPanel" class="feedback"></div>
+	<div id="customerRegistrationFormArea">
+		<form method="post" wicket:id="customerRegistrationForm01"
+			id="customerRegistrationForm01">
+
+
+
+			<table id="customerRegistrationFormTable">
+				<tr>
+					<td colspan="2">
+						<div id="ap_register_section_1_title">
+							<h2>New Customer? Register Below.</h2>
+						</div></td>
+
+				</tr>
+			
+				<tr>
+					<td>
+						<div id="customerNameLabel">
+							<label for="ap_customer_name">Customer name:</label>
+						</div>
+					</td>
+					<td>
+						<div id="customerNameDiv">
+							<input type="text" id="customerName"
+								wicket:id="customerName" name="Customer Name" />
+						</div></td>
+						<td>
+						<div wicket:id="customerNameFeedBackPanel" class="feedback"></div>
+					</td>
+				</tr>
+			
+				<tr>
+					<td><div id="customerEmailLabel">
+							<label for="ap_email">Customer email address:</label>
+						</div></td>
+
+					<td>
+						<div>
+							<input type="text" id="customerEmail" wicket:id="customerEmail"
+								name="customerEmail"/>
+						</div></td>
+						<td colspan="2">
+						<div wicket:id="customerEmailFeedBackPanel" class="feedback"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="customerEmailRetypeLabel">
+							<label for="ap_email_check">Type it again:</label>
+						</div></td>
+
+					<td>
+						<div>
+							<input type="text" id="customerEmailRetype"
+								wicket:id="customerEmailRetype" name="customerEmailRetype"/>
+						</div></td>
+						<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<h2></h2>
+						<div id="ap_register_section_2_title" >
+							<h2>Protect customer's information with a password</h2>
+						</div>
+						<div id="ap_register_section_2_subtitle" class="ap_small_text">
+							This will be customer's only StoreBiz password.</div></td>
+				</tr>
+
+				<tr>
+					<td colspan="3"><wicket:container
+							wicket:id="customerPasswordPanel"></wicket:container>
+						<div></div>
+					</td>
+				</tr>
+
+				<tr>
+					<td>&nbsp;</td>
+					<td>
+						<div id="ap_register_buttons">
+						<input type="submit" value="Register Customer" />
+							
+						</div></td>
+						<td>&nbsp;</td>
+				</tr>
+			</table>
+
+		</form>
+	</div>
+</body>
+</html>

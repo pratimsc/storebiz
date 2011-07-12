@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<wicket:panel>
+		<div>
+			<label id="addressDisplayNameLabel">Address Label :</label> <label id="addressDisplayName" wicket:id="addressDisplayName">Main Office</label>
+		</div>
+		<div>
+			<label id="contactFullNameLabel">Contact Name :</label> <label id="contactFullName" wicket:id="contactFullName" ></label>
+		</div>
+		<div id="addressLines">
+			<table border="1">
+				<tr>
+					<td><label id="addressLinesLabel">Address Line(s) :</label>
+					</td>
+					<td>
+						<table>
+							<tr wicket:id="addressLines">
+								<td><label id="addressLineValue" wicket:id="addressLineValue">1st Golmoja Street</label>
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<label id="cityLabel"> City :</label> <label wicket:id="city" >Manchester</label>
+		</div>
+		<div>
+			<label id="countyLabel">County :</label><label wicket:id="county"></label>
+		</div>
+		<div>
+			<label id="countryLabel">Country :</label> <label wicket:id="country">United Kingdom</label>
+		</div>
+		
+		<div>
+			<label id="postCodeLabel">Post Code :</label> <label wicket:id="postCode"></label>
+		</div>
+		<div id="phoneNumbers">
+			<table border="1">
+				<tr>
+					<td colspan="4" ><label id="phoneNumbersLabel">Phone Numbers :</label>
+					</td>
+				</tr>
+				<tr wicket:id="phoneNumbers">
+					<td><label id="phoneNumberType" wicket:id="phoneNumberType">Mobile</label></td>
+					<td><label id="phoneNumberValue" wicket:id="phoneNumberValue">+448590668475</label>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</wicket:panel>
+</body>
+</html>

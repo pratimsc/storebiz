@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<wicket:panel>
+		<div>
+			<h5>
+				<label id="addressDisplayNameLabel">Please provide a short label for the address</label> <br> <input
+					id="addressDisplayName" wicket:id="addressDisplayName" type="text" />
+				<div wicket:id="addressDisplayNameFeedbackPanel" class="feedback"></div>
+
+			</h5>
+		</div>
+		<div>
+			<label id="contactFullNameLabel">Contact Name</label> <input type="text" id="contactFullName" wicket:id="contactFullName" />
+			<div wicket:id="contactFullNameFeedbackPanel" class="feedback"></div>
+		</div>
+		<div id="addressLines">
+			<table border="1">
+				<tr>
+					<td><label wicket:id="addressLinesLabel" id="addressLinesLabel">Postal Address</label>
+					</td>
+					<td>
+						<table>
+							<tr wicket:id="addressLines">
+								<td><input type="text" id="addressLineValue" wicket:id="addressLineValue" />
+								</td>
+								<td><input wicket:id="remove" type="submit" value="remove" />
+								</td>
+								<td><div wicket:id="addressLineValueFeedbackPanel" class="feedback"></div>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="3"><input wicket:id="addAddressLine" type="submit" value="Add Address Line" />
+								</td>
+							</tr>
+						</table></td>
+				</tr>
+
+			</table>
+
+		</div>
+		<div>
+			<label id="cityLabel"> City</label> <input type="text" id="city" wicket:id="city" />
+			<div wicket:id="cityFeedbackPanel" class="feedback"></div>
+		</div>
+		<div>
+			<label id="countryLabel">Country</label> <input type="text" id="country" wicket:id="country" />
+			<!-- 			<div wicket:id="countryFeedbackPanel" class="feedback"></div> -->
+		</div>
+		<div>
+			<label id="countyLabel">County</label>
+				<select wicket:id ="counties"></select>
+			<div wicket:id="countiesFeedbackPanel" class="feedback"></div>
+		</div>
+		<div>
+			<label id="postCodeLabel">Post Code</label> <input type="text" id="postCode" wicket:id="postCode" />
+			<div wicket:id="postCodeFeedbackPanel" class="feedback"></div>
+		</div>
+		<div id="phoneNumbers">
+			<table border="1">
+				<tr>
+					<td colspan="4" ><label wicket:id="phoneNumbersLabel" id="phoneNumbersLabel">Phone Numbers</label>
+					</td>
+				</tr>
+				<tr wicket:id="phoneNumbers">
+					<td><input id="phoneNumberType" wicket:id="phoneNumberType" /></td>
+					<td><input id="phoneNumberValue" wicket:id="phoneNumberValue" type="text" />
+					</td>
+					<td><input wicket:id="remove" type="submit" value="remove"></td>
+					<td><div wicket:id="phoneNumberValueFeedbackPanel" class="feedback"></div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4"><input wicket:id="addPhoneNumber" type="submit" value="Add Phone Number" />
+					</td>
+				</tr>
+			</table>
+		</div>
+
+	</wicket:panel>
+</body>
+</html>
