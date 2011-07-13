@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Easy Store Application</title>
+<style type="text/css">
+table tr th {
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+table tr th.wicket_orderDown {
+	background-image: url(images/arrow_down.png);
+	background-color: #ADFF2F;
+}
+
+table tr th.wicket_orderUp {
+	background-image: url(images/arrow_up.png);
+	background-color: #FFEBCD;
+}
+
+table tr th.wicket_orderNone {
+	background-image: url(images/arrow_off.png);
+	background-color: #E6E6FA;
+}
+</style>
+</head>
+<body>
+	<div class="header" id="header">
+		<label>Easy Store Application </label>
+		<label wicket:id="organizationName">Organization Name</label>
+	</div>
+	<div id="container">
+		<wicket:link>
+			<label>The Application Menu will go here</label>
+			<div>
+				<a href="ShopManagementHomePage.html">Shop Management Home</a>
+			</div>
+		</wicket:link>
+	</div>
+	<div wicket:id="appFeedback">Main Feedback</div>
+	<div id="mainContent">
+		<wicket:child />
+	</div>
+
+	<footer>
+		<wicket:link>
+			<a href="/sma">Home</a>
+		</wicket:link>
+	</footer>
+</body>
+</html>

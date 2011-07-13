@@ -9,7 +9,6 @@ import org.apache.wicket.extensions.markup.html.repeater.data.table.DefaultDataT
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.PropertyColumn;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
@@ -19,6 +18,7 @@ import org.apache.wicket.model.PropertyModel;
 
 import biz.nirvani.storebiz.app.common.components.column.ClickablePropertyColumn;
 import biz.nirvani.storebiz.app.common.panel.supplier.display.SupplierDetailDisplayPanel;
+import biz.nirvani.storebiz.app.page.AppBasePage;
 import biz.nirvani.storebiz.app.view.entity.SupplierViewModel;
 import biz.nirvani.storebiz.biz.common.constants.CApplicationConstants;
 import biz.nirvani.storebiz.biz.service.implementation.BusinessServiceImpl;
@@ -27,14 +27,14 @@ import biz.nirvani.storebiz.utils.AppOrderingProvider;
 
 import com.google.appengine.repackaged.com.google.common.collect.Ordering;
 
-public class SupplierListingPage extends WebPage {
+public class SupplierListingPage extends AppBasePage {
 	private String _suppSrchTxt;
 	private List<IColumn<SupplierViewModel>> _columns = new ArrayList<IColumn<SupplierViewModel>>();
 	private SupplierProvider _suppProvider = new SupplierProvider();
 
 	public SupplierListingPage(PageParameters parameters) {
-		setVersioned(false);
-		
+		super(parameters);
+
 		Form suppSrchFrm = new Form("supplierSearch") {
 
 			@Override
@@ -48,8 +48,8 @@ public class SupplierListingPage extends WebPage {
 				"supplierSearchText", new PropertyModel<String>(this,
 						"_suppSrchTxt"));
 		suppSrchFrm.add(supplierSearchText);
-		AppOpertionalUtility.prepareFormComponents(supplierSearchText,
-				true, "Supplier Search Text", 1, 150, true);
+		AppOpertionalUtility.prepareFormComponents(supplierSearchText, true,
+				"Supplier Search Text", 1, 150, true);
 
 		prepareDataListViewColumns();
 		DefaultDataTable<SupplierViewModel> ddt = new DefaultDataTable<SupplierViewModel>(
@@ -72,25 +72,22 @@ public class SupplierListingPage extends WebPage {
 			protected void onClick(IModel<SupplierViewModel> model) {
 				SupplierDetailDisplayPanel supplierDetailDisplayPanel = new SupplierDetailDisplayPanel(
 						"supplierDetailDisplayPanel", model);
-				SupplierListingPage.this
-						.remove("supplierDetailDisplayPanel");
-				SupplierListingPage.this
-						.add(supplierDetailDisplayPanel);
+				SupplierListingPage.this.remove("supplierDetailDisplayPanel");
+				SupplierListingPage.this.add(supplierDetailDisplayPanel);
 
 			}
 		});
 
 		_columns.add(new PropertyColumn<SupplierViewModel>(Model
-				.of("Supplier Name"), "supplierName",
-				"manufacturerName"));
-		_columns.add(new PropertyColumn<SupplierViewModel>(Model
-				.of("Status"), "status", "status"));
+				.of("Supplier Name"), "supplierName", "supplierName"));
+		_columns.add(new PropertyColumn<SupplierViewModel>(Model.of("Status"),
+				"status", "status"));
 		_columns.add(new PropertyColumn<SupplierViewModel>(Model
 				.of("Primary Office Country"), "primaryAddressCountry",
-				"primaryAddressCountryCode"));
+				"primaryAddressCountry"));
 		_columns.add(new PropertyColumn<SupplierViewModel>(Model
 				.of("Primary Office County"), "primaryAddressCounty",
-				"primaryAddressCountyCode"));
+				"primaryAddressCounty"));
 		_columns.add(new PropertyColumn<SupplierViewModel>(Model
 				.of("Registration Date"), "supplierRegistrationDate",
 				"supplierRegistrationDate"));
@@ -102,7 +99,7 @@ public class SupplierListingPage extends WebPage {
 		private List<SupplierViewModel> suppVMList = new ArrayList<SupplierViewModel>();
 
 		public SupplierProvider() {
-			setSort("manufacturerRegistrationDate", true);
+			setSort("supplierRegistrationDate", true);
 		}
 
 		@Override

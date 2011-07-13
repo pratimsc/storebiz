@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.wicket.PageParameters;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
@@ -14,6 +13,7 @@ import org.apache.wicket.model.PropertyModel;
 
 import biz.nirvani.storebiz.app.common.panel.address.editable.AddressEditablePanel;
 import biz.nirvani.storebiz.app.common.panel.address.editable.AddressEditablePanelModel;
+import biz.nirvani.storebiz.app.page.AppBasePage;
 import biz.nirvani.storebiz.app.page.manufacturer.detail.ManufacturerDetailPage;
 import biz.nirvani.storebiz.app.view.entity.AddressViewModel;
 import biz.nirvani.storebiz.app.view.entity.ManufacturerViewModel;
@@ -25,7 +25,7 @@ import biz.nirvani.storebiz.biz.service.db.IManufacturerDBService;
 import biz.nirvani.storebiz.biz.service.implementation.BusinessServiceImpl;
 import biz.nirvani.storebiz.utils.AppOpertionalUtility;
 
-public class ManufacturerRegistrationPage extends WebPage {
+public class ManufacturerRegistrationPage extends AppBasePage {
 	IBussinessService bussSrv = BusinessServiceImpl.getInstance();
 	IManufacturerDBService mnDbsrv = bussSrv.getManufacturerDBServiceInstance();
 
@@ -35,7 +35,7 @@ public class ManufacturerRegistrationPage extends WebPage {
 	private Form<?> manufacturerRegistrationForm;
 
 	public ManufacturerRegistrationPage(PageParameters parameters) {
-		setVersioned(false);
+		super(parameters);
 
 		// Set the default country as INDIA. As the application will only run
 		// for India

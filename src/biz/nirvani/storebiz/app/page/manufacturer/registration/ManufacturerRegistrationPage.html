@@ -5,19 +5,20 @@
 <title>Manufacturer Registration</title>
 </head>
 <body>
-	<div wicket:id="feedback" />
+	<wicket:extend>
+		<div wicket:id="feedback" />
 
-	<form wicket:id="manufacturerRegistrationForm">
-		<div>
-			<label id="manufacturerNameLabel" wicket:id="manufacturerNameLabel">manufacturerNameLabel</label> 
-			<input id="manufacturerName" wicket:id="manufacturerName"
-				type="text" />
+		<form wicket:id="manufacturerRegistrationForm">
+			<div>
+				<label id="manufacturerNameLabel" wicket:id="manufacturerNameLabel">manufacturerNameLabel</label> <input id="manufacturerName"
+					wicket:id="manufacturerName" type="text" />
 				<div wicket:id="manufacturerNameFeedbackPanel"></div>
-		</div>
-		<div>
-		<wicket:container wicket:id="manufacturerAddress"></wicket:container>
-		</div>
-		<input type="submit" value="submit" />
-	</form>
+			</div>
+			<div>
+				<wicket:container wicket:id="manufacturerAddress"></wicket:container>
+			</div>
+			<input type="submit" value="submit" />
+		</form>
+	</wicket:extend>
 </body>
 </html>

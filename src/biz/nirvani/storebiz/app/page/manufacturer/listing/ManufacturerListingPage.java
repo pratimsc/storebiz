@@ -9,18 +9,16 @@ import org.apache.wicket.extensions.markup.html.repeater.data.table.DefaultDataT
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.PropertyColumn;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
-import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
 
 import biz.nirvani.storebiz.app.common.components.column.ClickablePropertyColumn;
 import biz.nirvani.storebiz.app.common.panel.manufacturer.display.ManufacturerDetailDisplayPanel;
+import biz.nirvani.storebiz.app.page.AppBasePage;
 import biz.nirvani.storebiz.app.view.entity.ManufacturerViewModel;
 import biz.nirvani.storebiz.biz.common.constants.CApplicationConstants;
 import biz.nirvani.storebiz.biz.service.implementation.BusinessServiceImpl;
@@ -29,13 +27,13 @@ import biz.nirvani.storebiz.utils.AppOrderingProvider;
 
 import com.google.appengine.repackaged.com.google.common.collect.Ordering;
 
-public class ManufacturerListingPage extends WebPage {
+public class ManufacturerListingPage extends AppBasePage {
 	private String _manSrchTxt;
 	private List<IColumn<ManufacturerViewModel>> _columns = new ArrayList<IColumn<ManufacturerViewModel>>();
 	private ManufacturerProvider _manProvider = new ManufacturerProvider();
 
 	public ManufacturerListingPage(PageParameters parameters) {
-		setVersioned(false);
+		super(parameters);
 		
 		Form manSrchFrm = new Form("manufacturerSearch") {
 
@@ -89,10 +87,10 @@ public class ManufacturerListingPage extends WebPage {
 				.of("Status"), "status", "status"));
 		_columns.add(new PropertyColumn<ManufacturerViewModel>(Model
 				.of("Primary Office Country"), "primaryAddressCountry",
-				"primaryAddressCountryCode"));
+				"primaryAddressCountry"));
 		_columns.add(new PropertyColumn<ManufacturerViewModel>(Model
 				.of("Primary Office County"), "primaryAddressCounty",
-				"primaryAddressCountyCode"));
+				"primaryAddressCounty"));
 		_columns.add(new PropertyColumn<ManufacturerViewModel>(Model
 				.of("Registration Date"), "manufacturerRegistrationDate",
 				"manufacturerRegistrationDate"));

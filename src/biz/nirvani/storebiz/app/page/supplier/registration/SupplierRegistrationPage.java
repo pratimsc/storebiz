@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.wicket.PageParameters;
-import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
@@ -14,7 +13,7 @@ import org.apache.wicket.model.PropertyModel;
 
 import biz.nirvani.storebiz.app.common.panel.address.editable.AddressEditablePanel;
 import biz.nirvani.storebiz.app.common.panel.address.editable.AddressEditablePanelModel;
-import biz.nirvani.storebiz.app.page.manufacturer.detail.ManufacturerDetailPage;
+import biz.nirvani.storebiz.app.page.AppBasePage;
 import biz.nirvani.storebiz.app.page.supplier.detail.SupplierDetailPage;
 import biz.nirvani.storebiz.app.view.entity.AddressViewModel;
 import biz.nirvani.storebiz.app.view.entity.SupplierViewModel;
@@ -26,7 +25,7 @@ import biz.nirvani.storebiz.biz.service.db.ISupplierDBService;
 import biz.nirvani.storebiz.biz.service.implementation.BusinessServiceImpl;
 import biz.nirvani.storebiz.utils.AppOpertionalUtility;
 
-public class SupplierRegistrationPage extends WebPage {
+public class SupplierRegistrationPage extends AppBasePage {
 	IBussinessService bussSrv = BusinessServiceImpl.getInstance();
 	ISupplierDBService suppDbsrv = bussSrv.getSupplierDBServiceInstance();
 
@@ -36,7 +35,7 @@ public class SupplierRegistrationPage extends WebPage {
 	private Form<?> supplierRegistrationForm;
 
 	public SupplierRegistrationPage(PageParameters parameters) {
-		setVersioned(false);
+		super(parameters);
 
 		// Set the default country as INDIA. As the application will only run
 		// for India
@@ -50,7 +49,7 @@ public class SupplierRegistrationPage extends WebPage {
 
 			@Override
 			public void onSubmit() {
-				// Add the manufacturer to database and redirect to Manufacturer
+				// Add the supplier to database and redirect to Supplier
 				// detail page
 				addressModel
 						.setAddressOwnerType(CAddressOwnerType.ADDRESS_OWNER_TYPE_ORGANIZATION);
@@ -79,7 +78,7 @@ public class SupplierRegistrationPage extends WebPage {
 				PageParameters pars = new PageParameters();
 				pars.put(SupplierDetailPage.SUPPLIER_OBJECT,
 						supplier);
-				setResponsePage(new ManufacturerDetailPage(pars));
+				setResponsePage(new SupplierDetailPage(pars));
 			}
 
 		};

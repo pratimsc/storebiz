@@ -1,6 +1,6 @@
 package biz.nirvani.storebiz.db.entity.product;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2011-07-12 23:04:51")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2011-07-13 18:56:26")
 /** */
 public final class ProductMeta extends org.slim3.datastore.ModelMeta<biz.nirvani.storebiz.db.entity.product.Product> {
 

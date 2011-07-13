@@ -1,6 +1,6 @@
 package biz.nirvani.storebiz.db.entity.uniqueid;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2011-07-12 23:04:50")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2011-07-13 18:56:25")
 /** */
 public final class SupplierUniqueIdRegistryMeta extends org.slim3.datastore.ModelMeta<biz.nirvani.storebiz.db.entity.uniqueid.SupplierUniqueIdRegistry> {
 

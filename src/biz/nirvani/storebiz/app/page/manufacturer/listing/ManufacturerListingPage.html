@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-table tr th {background-position:right;background-repeat:no-repeat;}
-table tr th.wicket_orderDown{background-image:url(images/arrow_down.png);background-color: #ADFF2F;}
-table tr th.wicket_orderUp{background-image: url(images/arrow_up.png);background-color: #FFEBCD;}
-table tr th.wicket_orderNone{background-image: url(images/arrow_off.png); background-color: #E6E6FA;}
-</style>
+
 <meta charset="UTF-8">
 <title>Manufacturer Listing</title>
 </head>
 <body>
-<div>
-	<form wicket:id="manufacturerSearch">
-		<label>Manufacturer:</label>
-		<input type="text" wicket:id="manufacturerSearchText" />
-		<input type="submit" value="Search"/>
-		<div wicket:id="manufacturerSearchTextFeedbackPanel"></div>
-	</form>
-	
-	<div>
-		<table wicket:id="manufacturerList"></table>
-	</div>
-	<hr>
-	<div wicket:id="manufacturerDetailDisplayPanel"></div>
-</div>
+	<wicket:extend>
+		<div>
+			<form wicket:id="manufacturerSearch">
+				<label>Manufacturer:</label> <input type="text" wicket:id="manufacturerSearchText" /> <input type="submit" value="Search" />
+				<div wicket:id="manufacturerSearchTextFeedbackPanel"></div>
+			</form>
+
+			<div>
+				<table wicket:id="manufacturerList"></table>
+			</div>
+			<hr>
+			<div wicket:id="manufacturerDetailDisplayPanel"></div>
+		</div>
+	</wicket:extend>
 </body>
 </html>
