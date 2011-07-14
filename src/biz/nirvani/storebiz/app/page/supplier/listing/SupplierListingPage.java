@@ -19,6 +19,7 @@ import org.apache.wicket.model.PropertyModel;
 import biz.nirvani.storebiz.app.common.components.column.ClickablePropertyColumn;
 import biz.nirvani.storebiz.app.common.panel.supplier.display.SupplierDetailDisplayPanel;
 import biz.nirvani.storebiz.app.page.AppBasePage;
+import biz.nirvani.storebiz.app.page.SecureAppBasePage;
 import biz.nirvani.storebiz.app.view.entity.SupplierViewModel;
 import biz.nirvani.storebiz.biz.common.constants.CApplicationConstants;
 import biz.nirvani.storebiz.biz.service.implementation.BusinessServiceImpl;
@@ -27,7 +28,7 @@ import biz.nirvani.storebiz.utils.AppOrderingProvider;
 
 import com.google.appengine.repackaged.com.google.common.collect.Ordering;
 
-public class SupplierListingPage extends AppBasePage {
+public class SupplierListingPage extends SecureAppBasePage {
 	private String _suppSrchTxt;
 	private List<IColumn<SupplierViewModel>> _columns = new ArrayList<IColumn<SupplierViewModel>>();
 	private SupplierProvider _suppProvider = new SupplierProvider();

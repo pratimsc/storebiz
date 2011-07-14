@@ -6,13 +6,14 @@ import org.apache.wicket.model.LoadableDetachableModel;
 
 import biz.nirvani.storebiz.app.common.panel.supplier.display.SupplierDetailDisplayPanel;
 import biz.nirvani.storebiz.app.page.AppBasePage;
+import biz.nirvani.storebiz.app.page.SecureAppBasePage;
 import biz.nirvani.storebiz.app.view.entity.SupplierViewModel;
 import biz.nirvani.storebiz.biz.service.db.ISupplierDBService;
 import biz.nirvani.storebiz.biz.service.implementation.BusinessServiceImpl;
 
 import com.google.appengine.api.datastore.Key;
 
-public class SupplierDetailPage extends AppBasePage {
+public class SupplierDetailPage extends SecureAppBasePage {
 	public static String SUPPLIER_ID = "SUPPLIER_ID";
 	public static String SUPPLIER_OBJECT = "SUPPLIER_OBJECT";
 	public static String SUPPLIER_KEY = "SUPPLIER_KEY";

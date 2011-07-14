@@ -11,7 +11,7 @@ import biz.nirvani.storebiz.app.page.supplier.registration.SupplierRegistrationP
 
 import com.wicketinaction.HomePage;
 
-public class ShopManagementHomePage extends AppBasePage {
+public class ShopManagementHomePage extends SecureAppBasePage{
 	public ShopManagementHomePage(PageParameters parameters){
 		super(parameters);
 		String linkCustomerRegistrationPageUrl = (String)urlFor(CustomerRegistrationPage.class,parameters);

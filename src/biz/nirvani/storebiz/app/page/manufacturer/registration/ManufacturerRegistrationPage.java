@@ -14,6 +14,7 @@ import org.apache.wicket.model.PropertyModel;
 import biz.nirvani.storebiz.app.common.panel.address.editable.AddressEditablePanel;
 import biz.nirvani.storebiz.app.common.panel.address.editable.AddressEditablePanelModel;
 import biz.nirvani.storebiz.app.page.AppBasePage;
+import biz.nirvani.storebiz.app.page.SecureAppBasePage;
 import biz.nirvani.storebiz.app.page.manufacturer.detail.ManufacturerDetailPage;
 import biz.nirvani.storebiz.app.view.entity.AddressViewModel;
 import biz.nirvani.storebiz.app.view.entity.ManufacturerViewModel;
@@ -25,7 +26,7 @@ import biz.nirvani.storebiz.biz.service.db.IManufacturerDBService;
 import biz.nirvani.storebiz.biz.service.implementation.BusinessServiceImpl;
 import biz.nirvani.storebiz.utils.AppOpertionalUtility;
 
-public class ManufacturerRegistrationPage extends AppBasePage {
+public class ManufacturerRegistrationPage extends SecureAppBasePage {
 	IBussinessService bussSrv = BusinessServiceImpl.getInstance();
 	IManufacturerDBService mnDbsrv = bussSrv.getManufacturerDBServiceInstance();
 

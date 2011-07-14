@@ -3,42 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <title>Easy Store Application</title>
-<style type="text/css">
-table tr th {
-	background-position: right;
-	background-repeat: no-repeat;
-}
+<link rel="stylesheet" type="text/css" href="/css/AppBasePage.css" />
+<script type="text/javascript" src="/js/jquery-1.6.2.js"></script>
+<script type="text/javascript">
 
-table tr th.wicket_orderDown {
-	background-image: url(images/arrow_down.png);
-	background-color: #ADFF2F;
-}
+$(function(){
+	$('.dropdown').mouseenter(function(){
+		$('.sublinks').stop(false, true).hide();
+	
+		var submenu = $(this).parent().next();
 
-table tr th.wicket_orderUp {
-	background-image: url(images/arrow_up.png);
-	background-color: #FFEBCD;
-}
-
-table tr th.wicket_orderNone {
-	background-image: url(images/arrow_off.png);
-	background-color: #E6E6FA;
-}
-</style>
+		submenu.css({
+			position:'absolute',
+			top: $(this).offset().top + $(this).height() + 'px',
+			left: $(this).offset().left + 'px',
+			zIndex:1000
+		});
+		
+		submenu.stop().slideDown(300);
+		
+		submenu.mouseleave(function(){
+			$(this).slideUp(300);
+		});
+	});
+});
+</script>
 </head>
 <body>
-	<div class="header" id="header">
-		<label>Easy Store Application </label>
-		<label wicket:id="organizationName">Organization Name</label>
-	</div>
-	<div id="container">
-		<wicket:link>
-			<label>The Application Menu will go here</label>
-			<div>
-				<a href="ShopManagementHomePage.html">Shop Management Home</a>
-			</div>
-		</wicket:link>
-	</div>
+	<header>
+		<div class="header" id="header">
+			<label>Easy Store Application </label> <label wicket:id="organizationName">Organization Name</label>
+		</div>
+		<div id="container">
+		<wicket:link>	
+				<ul>
+					<li ><a class="dropdown" href="ShopManagementHomePage.html">Home</a></li>
+				</ul>
+				<ul>
+					<li>
+						<a class="dropdown" href="#">Supplier Management</a>
+					</li>
+					<li class="sublinks">
+						<a href="supplier.listing/SupplierListingPage.html">Supplier Listing</a> 
+						<a href="supplier.registration/SupplierRegistrationPage.html">Supplier Registration</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a class="dropdown" href="#">Manufacturer Management</a>
+					</li>
+					<li class="sublinks">
+						<a href="manufacturer.listing/ManufacturerListingPage.html">Manufacturer Listing</a> 
+						<a href="manufacturer.registration/ManufacturerRegistrationPage.html">Manufacturer Registration</a>
+					</li>
+				</ul>
+			</wicket:link>
+		</div>
+	</header>
+	<br>
 	<div wicket:id="appFeedback">Main Feedback</div>
+	<br>
 	<div id="mainContent">
 		<wicket:child />
 	</div>
