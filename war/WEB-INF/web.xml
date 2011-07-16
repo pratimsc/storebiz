@@ -6,7 +6,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
 	<servlet>
 		<servlet-name>Medshop01</servlet-name>
-		<servlet-class>biz.nirvani.storebiz.Medshop01Servlet</servlet-class>
+		<servlet-class>biz.storebiz.Medshop01Servlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Medshop01</servlet-name>
@@ -29,7 +29,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
 		<init-param>
 			<param-name>applicationClassName</param-name>
-			<param-value>biz.nirvani.storebiz.ShopManagementApp</param-value>
+			<param-value>biz.storebiz.ShopManagementApp</param-value>
 		</init-param>
 	</filter>
 	
