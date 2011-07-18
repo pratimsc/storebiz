@@ -18,9 +18,8 @@ import org.apache.wicket.model.PropertyModel;
 
 import biz.storebiz.app.common.components.column.ClickablePropertyColumn;
 import biz.storebiz.app.common.panel.supplier.display.SupplierDetailDisplayPanel;
-import biz.storebiz.app.page.AppBasePage;
-import biz.storebiz.app.page.SecureAppBasePage;
-import biz.storebiz.app.view.entity.SupplierViewModel;
+import biz.storebiz.app.entity.view.SupplierViewModel;
+import biz.storebiz.app.page.SecurePage;
 import biz.storebiz.biz.common.constants.CApplicationConstants;
 import biz.storebiz.biz.service.implementation.BusinessServiceImpl;
 import biz.storebiz.utils.AppOpertionalUtility;
@@ -28,44 +27,16 @@ import biz.storebiz.utils.AppOrderingProvider;
 
 import com.google.appengine.repackaged.com.google.common.collect.Ordering;
 
-public class SupplierListingPage extends SecureAppBasePage {
+public class SupplierListingPage extends SecurePage {
 	private String _suppSrchTxt;
-	private List<IColumn<SupplierViewModel>> _columns = new ArrayList<IColumn<SupplierViewModel>>();
-	private SupplierProvider _suppProvider = new SupplierProvider();
+	private List<IColumn<SupplierViewModel>> _columns;
+	private SupplierProvider _suppProvider;
 
 	public SupplierListingPage(PageParameters parameters) {
 		super(parameters);
-
-		Form suppSrchFrm = new Form("supplierSearch") {
-
-			@Override
-			protected void onSubmit() {
-				_suppProvider.setFilterText(_suppSrchTxt);
-			}
-		};
-		add(suppSrchFrm);
-
-		TextField<String> supplierSearchText = new TextField<String>(
-				"supplierSearchText", new PropertyModel<String>(this,
-						"_suppSrchTxt"));
-		suppSrchFrm.add(supplierSearchText);
-		AppOpertionalUtility.prepareFormComponents(supplierSearchText, true,
-				"Supplier Search Text", 1, 150, true);
-
-		prepareDataListViewColumns();
-		DefaultDataTable<SupplierViewModel> ddt = new DefaultDataTable<SupplierViewModel>(
-				"supplierList",
-				_columns,
-				_suppProvider,
-				CApplicationConstants.APP_PAGINATION_NUMBER_OF_RECORDS_IN_A_PAGE);
-		add(ddt);
-
-		Label tmpLabel = new Label("supplierDetailDisplayPanel", "");
-		add(tmpLabel);
-
 	}
 
-	private void prepareDataListViewColumns() {
+	private void prepareDataListViewColumns() {		
 		_columns.add(new ClickablePropertyColumn<SupplierViewModel>(Model
 				.of("Supplier Id"), "supplierId", "supplierId") {
 
@@ -162,5 +133,38 @@ public class SupplierListingPage extends SecureAppBasePage {
 					.getSupplierDBServiceInstance().findByText(filterText);
 		}
 
+	}
+
+	@Override
+	public void renderPageBodyContent(PageParameters parameters) {
+		_columns = new ArrayList<IColumn<SupplierViewModel>>();
+		_suppProvider = new SupplierProvider();
+		
+		Form suppSrchFrm = new Form("supplierSearch") {
+
+			@Override
+			protected void onSubmit() {
+				_suppProvider.setFilterText(_suppSrchTxt);
+			}
+		};
+		add(suppSrchFrm);
+
+		TextField<String> supplierSearchText = new TextField<String>(
+				"supplierSearchText", new PropertyModel<String>(this,
+						"_suppSrchTxt"));
+		suppSrchFrm.add(supplierSearchText);
+		AppOpertionalUtility.prepareFormComponents(supplierSearchText, true,
+				"Supplier Search Text", 1, 150, true);
+
+		prepareDataListViewColumns();
+		DefaultDataTable<SupplierViewModel> ddt = new DefaultDataTable<SupplierViewModel>(
+				"supplierList",
+				_columns,
+				_suppProvider,
+				CApplicationConstants.APP_PAGINATION_NUMBER_OF_RECORDS_IN_A_PAGE);
+		add(ddt);
+
+		Label tmpLabel = new Label("supplierDetailDisplayPanel", "");
+		add(tmpLabel);
 	}
 }

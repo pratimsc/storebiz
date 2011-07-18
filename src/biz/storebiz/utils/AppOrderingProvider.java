@@ -2,8 +2,8 @@ package biz.storebiz.utils;
 
 import java.util.Date;
 
-import biz.storebiz.app.view.entity.ManufacturerViewModel;
-import biz.storebiz.app.view.entity.SupplierViewModel;
+import biz.storebiz.app.entity.view.ManufacturerViewModel;
+import biz.storebiz.app.entity.view.SupplierViewModel;
 
 import com.google.appengine.repackaged.com.google.common.base.Function;
 import com.google.appengine.repackaged.com.google.common.collect.Ordering;

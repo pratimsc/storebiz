@@ -7,11 +7,11 @@ import org.slim3.datastore.Datastore;
 
 import com.google.appengine.api.datastore.Key;
 
-import biz.storebiz.app.view.entity.AddressViewModel;
-import biz.storebiz.app.view.entity.ManufacturerViewModel;
-import biz.storebiz.app.view.entity.PhoneNumberViewModel;
-import biz.storebiz.app.view.entity.SupplierViewModel;
-import biz.storebiz.app.view.entity.WebViewModel;
+import biz.storebiz.app.entity.view.AddressViewModel;
+import biz.storebiz.app.entity.view.ManufacturerViewModel;
+import biz.storebiz.app.entity.view.PhoneNumberViewModel;
+import biz.storebiz.app.entity.view.SupplierViewModel;
+import biz.storebiz.app.entity.view.WebViewModel;
 import biz.storebiz.biz.common.constants.CApplicationConstants;
 import biz.storebiz.biz.service.IBussinessService;
 import biz.storebiz.biz.service.db.IAddressDBService;

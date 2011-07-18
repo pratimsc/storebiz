@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.slim3.datastore.Datastore;
 
-import biz.storebiz.app.view.entity.AddressViewModel;
-import biz.storebiz.app.view.entity.ManufacturerViewModel;
-import biz.storebiz.app.view.entity.WebViewModel;
+import biz.storebiz.app.entity.view.AddressViewModel;
+import biz.storebiz.app.entity.view.ManufacturerViewModel;
+import biz.storebiz.app.entity.view.WebViewModel;
 import biz.storebiz.biz.common.constants.CApplicationConstants;
 import biz.storebiz.biz.service.db.IManufacturerDBService;
 import biz.storebiz.biz.service.implementation.BusinessServiceImpl;

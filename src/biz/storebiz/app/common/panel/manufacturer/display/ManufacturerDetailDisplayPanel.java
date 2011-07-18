@@ -6,8 +6,8 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
 import biz.storebiz.app.common.panel.address.display.AddressDisplayPanel;
-import biz.storebiz.app.view.entity.AddressViewModel;
-import biz.storebiz.app.view.entity.ManufacturerViewModel;
+import biz.storebiz.app.entity.view.AddressViewModel;
+import biz.storebiz.app.entity.view.ManufacturerViewModel;
 import biz.storebiz.utils.AppOpertionalUtility;
 
 public class ManufacturerDetailDisplayPanel extends Panel {

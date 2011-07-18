@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.slim3.datastore.Datastore;
 
-import biz.storebiz.app.view.entity.CountyViewModel;
+import biz.storebiz.app.entity.view.CountyViewModel;
 import biz.storebiz.biz.service.db.ICountyDBService;
 import biz.storebiz.db.entity.common.County;
 import biz.storebiz.db.entity.common.CountyMeta;

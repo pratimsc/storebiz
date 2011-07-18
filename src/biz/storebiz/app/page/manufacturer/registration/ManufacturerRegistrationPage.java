@@ -13,11 +13,10 @@ import org.apache.wicket.model.PropertyModel;
 
 import biz.storebiz.app.common.panel.address.editable.AddressEditablePanel;
 import biz.storebiz.app.common.panel.address.editable.AddressEditablePanelModel;
-import biz.storebiz.app.page.AppBasePage;
-import biz.storebiz.app.page.SecureAppBasePage;
+import biz.storebiz.app.entity.view.AddressViewModel;
+import biz.storebiz.app.entity.view.ManufacturerViewModel;
+import biz.storebiz.app.page.SecurePage;
 import biz.storebiz.app.page.manufacturer.detail.ManufacturerDetailPage;
-import biz.storebiz.app.view.entity.AddressViewModel;
-import biz.storebiz.app.view.entity.ManufacturerViewModel;
 import biz.storebiz.biz.common.constants.CAddressOwnerType;
 import biz.storebiz.biz.common.constants.CAddressType;
 import biz.storebiz.biz.common.constants.CEntityLifeStatus;
@@ -26,20 +25,22 @@ import biz.storebiz.biz.service.db.IManufacturerDBService;
 import biz.storebiz.biz.service.implementation.BusinessServiceImpl;
 import biz.storebiz.utils.AppOpertionalUtility;
 
-public class ManufacturerRegistrationPage extends SecureAppBasePage {
-	IBussinessService bussSrv = BusinessServiceImpl.getInstance();
-	IManufacturerDBService mnDbsrv = bussSrv.getManufacturerDBServiceInstance();
+public class ManufacturerRegistrationPage extends SecurePage {
 
 	private ManufacturerViewModel manufacturer;
-	private AddressEditablePanelModel addressModel = new AddressEditablePanelModel();
+	private AddressEditablePanelModel addressModel;
 
 	private Form<?> manufacturerRegistrationForm;
 
 	public ManufacturerRegistrationPage(PageParameters parameters) {
 		super(parameters);
+	}
 
+	@Override
+	public void renderPageBodyContent(PageParameters parameters) {
 		// Set the default country as INDIA. As the application will only run
 		// for India
+		addressModel = new AddressEditablePanelModel();
 		addressModel.setCountry("INDIA");
 		addressModel.setCountryCode("IN");
 
@@ -70,8 +71,10 @@ public class ManufacturerRegistrationPage extends SecureAppBasePage {
 						.getCountyCode());
 				manufacturer.setPrimaryAddressCounty(addrVMList.get(0)
 						.getCounty());
-				
-				//Now add the Manufacturer in the DataBase
+
+				// Now add the Manufacturer in the DataBase
+				IManufacturerDBService mnDbsrv = BusinessServiceImpl
+						.getInstance().getManufacturerDBServiceInstance();
 				manufacturer = mnDbsrv.put(manufacturer);
 
 				// info("Manufacturer information is registered with the system. The details are below.");
@@ -103,7 +106,6 @@ public class ManufacturerRegistrationPage extends SecureAppBasePage {
 				new PropertyModel<AddressEditablePanelModel>(this,
 						"addressModel"));
 		manufacturerRegistrationForm.add(addressPanel);
-
 	}
 
 }

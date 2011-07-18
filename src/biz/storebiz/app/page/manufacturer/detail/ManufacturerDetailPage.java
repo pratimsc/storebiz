@@ -5,15 +5,14 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.LoadableDetachableModel;
 
 import biz.storebiz.app.common.panel.manufacturer.display.ManufacturerDetailDisplayPanel;
-import biz.storebiz.app.page.AppBasePage;
-import biz.storebiz.app.page.SecureAppBasePage;
-import biz.storebiz.app.view.entity.ManufacturerViewModel;
+import biz.storebiz.app.entity.view.ManufacturerViewModel;
+import biz.storebiz.app.page.SecurePage;
 import biz.storebiz.biz.service.db.IManufacturerDBService;
 import biz.storebiz.biz.service.implementation.BusinessServiceImpl;
 
 import com.google.appengine.api.datastore.Key;
 
-public class ManufacturerDetailPage extends SecureAppBasePage {
+public class ManufacturerDetailPage extends SecurePage {
 	public static String MANUFACTURER_ID = "MANUFACTURER_ID";
 	public static String MANUFACTURER_OBJECT = "MANUFACTURER_OBJECT";
 	public static String MANUFACTURER_KEY = "MANUFACTURER_KEY";
@@ -23,8 +22,11 @@ public class ManufacturerDetailPage extends SecureAppBasePage {
 	private ManufacturerViewModel _manufacturerVM;
 
 	public ManufacturerDetailPage(PageParameters parameters) {
-		super(parameters);
-		
+		super(parameters);		
+	}
+
+	@Override
+	public void renderPageBodyContent(PageParameters parameters) {
 		add(new FeedbackPanel("feedback"));
 
 		_manufacturerVM = (ManufacturerViewModel) parameters
@@ -54,5 +56,6 @@ public class ManufacturerDetailPage extends SecureAppBasePage {
 		});
 		
 		add(manufacturerDetailDisplayPanel);
+		
 	}
 }

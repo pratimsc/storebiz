@@ -1,4 +1,4 @@
-package biz.storebiz.app.view.entity;
+package biz.storebiz.app.entity.view;
 
 import biz.storebiz.app.common.panel.address.editable.*;
 import biz.storebiz.db.IStorebizSerializableEntity;

@@ -2,7 +2,7 @@ package biz.storebiz.biz.service.db;
 
 import java.util.List;
 
-import biz.storebiz.app.view.entity.CountryViewModel;
+import biz.storebiz.app.entity.view.CountryViewModel;
 
 import com.google.appengine.api.datastore.Key;
 

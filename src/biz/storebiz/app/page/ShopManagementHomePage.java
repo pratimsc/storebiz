@@ -11,18 +11,29 @@ import biz.storebiz.app.page.supplier.registration.SupplierRegistrationPage;
 
 import com.wicketinaction.HomePage;
 
-public class ShopManagementHomePage extends SecureAppBasePage{
-	public ShopManagementHomePage(PageParameters parameters){
+public class ShopManagementHomePage extends SecurePage {
+	public ShopManagementHomePage(PageParameters parameters) {
 		super(parameters);
-		String linkCustomerRegistrationPageUrl = (String)urlFor(CustomerRegistrationPage.class,parameters);
-		add(new ExternalLink("linkCustomerRegistrationPage", linkCustomerRegistrationPageUrl));
-		add(new ExternalLink("linkManufacturerRegistrationPage", (String) urlFor(ManufacturerRegistrationPage.class,parameters)));
-		add(new ExternalLink("linkManufacturerListingPage",(String)urlFor(ManufacturerListingPage.class,parameters)));
-		add(new ExternalLink("linkSupplierRegistrationPage", (String) urlFor(SupplierRegistrationPage.class,parameters)));
-		add(new ExternalLink("linkSupplierListingPage",(String)urlFor(SupplierListingPage.class,parameters)));
-		
-		add(new ExternalLink("linkTestListEditor","#"));
-		add(new ExternalLink("linkTestMultiFormPanel","#"));
-		add(new ExternalLink("wicketInActionHomePage",(String)urlFor(HomePage.class,parameters)));
+	}
+
+	@Override
+	public void renderPageBodyContent(PageParameters parameters) {
+		String linkCustomerRegistrationPageUrl = (String) urlFor(
+				CustomerRegistrationPage.class, parameters);
+		add(new ExternalLink("linkCustomerRegistrationPage",
+				linkCustomerRegistrationPageUrl));
+		add(new ExternalLink("linkManufacturerRegistrationPage",
+				(String) urlFor(ManufacturerRegistrationPage.class, parameters)));
+		add(new ExternalLink("linkManufacturerListingPage", (String) urlFor(
+				ManufacturerListingPage.class, parameters)));
+		add(new ExternalLink("linkSupplierRegistrationPage", (String) urlFor(
+				SupplierRegistrationPage.class, parameters)));
+		add(new ExternalLink("linkSupplierListingPage", (String) urlFor(
+				SupplierListingPage.class, parameters)));
+
+		add(new ExternalLink("linkTestListEditor", "#"));
+		add(new ExternalLink("linkTestMultiFormPanel", "#"));
+		add(new ExternalLink("wicketInActionHomePage", (String) urlFor(
+				HomePage.class, parameters)));
 	}
 }

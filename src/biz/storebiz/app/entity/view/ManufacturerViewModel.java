@@ -1,4 +1,4 @@
-package biz.storebiz.app.view.entity;
+package biz.storebiz.app.entity.view;
 
 import java.util.Date;
 import java.util.List;

@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.slim3.datastore.Datastore;
 
-import biz.storebiz.app.view.entity.CountryViewModel;
-import biz.storebiz.app.view.entity.WebViewModel;
+import biz.storebiz.app.entity.view.CountryViewModel;
+import biz.storebiz.app.entity.view.WebViewModel;
 import biz.storebiz.biz.service.db.ICountryDBService;
 import biz.storebiz.db.entity.common.Country;
 import biz.storebiz.db.entity.common.CountryMeta;

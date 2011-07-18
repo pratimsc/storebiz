@@ -18,9 +18,8 @@ import org.apache.wicket.model.PropertyModel;
 
 import biz.storebiz.app.common.components.column.ClickablePropertyColumn;
 import biz.storebiz.app.common.panel.manufacturer.display.ManufacturerDetailDisplayPanel;
-import biz.storebiz.app.page.AppBasePage;
-import biz.storebiz.app.page.SecureAppBasePage;
-import biz.storebiz.app.view.entity.ManufacturerViewModel;
+import biz.storebiz.app.entity.view.ManufacturerViewModel;
+import biz.storebiz.app.page.SecurePage;
 import biz.storebiz.biz.common.constants.CApplicationConstants;
 import biz.storebiz.biz.service.implementation.BusinessServiceImpl;
 import biz.storebiz.utils.AppOpertionalUtility;
@@ -28,41 +27,13 @@ import biz.storebiz.utils.AppOrderingProvider;
 
 import com.google.appengine.repackaged.com.google.common.collect.Ordering;
 
-public class ManufacturerListingPage extends SecureAppBasePage {
+public class ManufacturerListingPage extends SecurePage {
 	private String _manSrchTxt;
 	private List<IColumn<ManufacturerViewModel>> _columns = new ArrayList<IColumn<ManufacturerViewModel>>();
 	private ManufacturerProvider _manProvider = new ManufacturerProvider();
 
 	public ManufacturerListingPage(PageParameters parameters) {
 		super(parameters);
-		
-		Form manSrchFrm = new Form("manufacturerSearch") {
-
-			@Override
-			protected void onSubmit() {
-				_manProvider.setFilterText(_manSrchTxt);
-			}
-		};
-		add(manSrchFrm);
-
-		TextField<String> manufacturerSearchText = new TextField<String>(
-				"manufacturerSearchText", new PropertyModel<String>(this,
-						"_manSrchTxt"));
-		manSrchFrm.add(manufacturerSearchText);
-		AppOpertionalUtility.prepareFormComponents(manufacturerSearchText,
-				true, "Manufactuerer Search Text", 1, 150, true);
-
-		prepareDataListViewColumns();
-		DefaultDataTable<ManufacturerViewModel> ddt = new DefaultDataTable<ManufacturerViewModel>(
-				"manufacturerList",
-				_columns,
-				_manProvider,
-				CApplicationConstants.APP_PAGINATION_NUMBER_OF_RECORDS_IN_A_PAGE);
-		add(ddt);
-
-		Label tmpLabel = new Label("manufacturerDetailDisplayPanel", "");
-		add(tmpLabel);
-
 	}
 
 	private void prepareDataListViewColumns() {
@@ -165,5 +136,35 @@ public class ManufacturerListingPage extends SecureAppBasePage {
 					.getManufacturerDBServiceInstance().findByText(filterText);
 		}
 
+	}
+
+	@Override
+	public void renderPageBodyContent(PageParameters parameters) {
+		Form manSrchFrm = new Form("manufacturerSearch") {
+
+			@Override
+			protected void onSubmit() {
+				_manProvider.setFilterText(_manSrchTxt);
+			}
+		};
+		add(manSrchFrm);
+
+		TextField<String> manufacturerSearchText = new TextField<String>(
+				"manufacturerSearchText", new PropertyModel<String>(this,
+						"_manSrchTxt"));
+		manSrchFrm.add(manufacturerSearchText);
+		AppOpertionalUtility.prepareFormComponents(manufacturerSearchText,
+				true, "Manufactuerer Search Text", 1, 150, true);
+
+		prepareDataListViewColumns();
+		DefaultDataTable<ManufacturerViewModel> ddt = new DefaultDataTable<ManufacturerViewModel>(
+				"manufacturerList",
+				_columns,
+				_manProvider,
+				CApplicationConstants.APP_PAGINATION_NUMBER_OF_RECORDS_IN_A_PAGE);
+		add(ddt);
+
+		Label tmpLabel = new Label("manufacturerDetailDisplayPanel", "");
+		add(tmpLabel);
 	}
 }

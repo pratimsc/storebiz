@@ -6,8 +6,8 @@ import org.apache.wicket.markup.html.list.ListView;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 
-import biz.storebiz.app.view.entity.AddressViewModel;
-import biz.storebiz.app.view.entity.PhoneNumberViewModel;
+import biz.storebiz.app.entity.view.AddressViewModel;
+import biz.storebiz.app.entity.view.PhoneNumberViewModel;
 
 public class AddressDisplayPanel extends Panel {
 

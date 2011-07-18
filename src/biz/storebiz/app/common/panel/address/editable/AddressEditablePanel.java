@@ -15,7 +15,7 @@ import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.PropertyModel;
 
-import biz.storebiz.app.view.entity.CountyViewModel;
+import biz.storebiz.app.entity.view.CountyViewModel;
 import biz.storebiz.biz.service.IBussinessService;
 import biz.storebiz.biz.service.db.ICountyDBService;
 import biz.storebiz.biz.service.implementation.BusinessServiceImpl;

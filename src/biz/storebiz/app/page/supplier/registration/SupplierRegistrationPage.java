@@ -13,11 +13,10 @@ import org.apache.wicket.model.PropertyModel;
 
 import biz.storebiz.app.common.panel.address.editable.AddressEditablePanel;
 import biz.storebiz.app.common.panel.address.editable.AddressEditablePanelModel;
-import biz.storebiz.app.page.AppBasePage;
-import biz.storebiz.app.page.SecureAppBasePage;
+import biz.storebiz.app.entity.view.AddressViewModel;
+import biz.storebiz.app.entity.view.SupplierViewModel;
+import biz.storebiz.app.page.SecurePage;
 import biz.storebiz.app.page.supplier.detail.SupplierDetailPage;
-import biz.storebiz.app.view.entity.AddressViewModel;
-import biz.storebiz.app.view.entity.SupplierViewModel;
 import biz.storebiz.biz.common.constants.CAddressOwnerType;
 import biz.storebiz.biz.common.constants.CAddressType;
 import biz.storebiz.biz.common.constants.CEntityLifeStatus;
@@ -26,27 +25,28 @@ import biz.storebiz.biz.service.db.ISupplierDBService;
 import biz.storebiz.biz.service.implementation.BusinessServiceImpl;
 import biz.storebiz.utils.AppOpertionalUtility;
 
-public class SupplierRegistrationPage extends SecureAppBasePage {
-	IBussinessService bussSrv = BusinessServiceImpl.getInstance();
-	ISupplierDBService suppDbsrv = bussSrv.getSupplierDBServiceInstance();
+public class SupplierRegistrationPage extends SecurePage {
 
 	private SupplierViewModel supplier;
-	private AddressEditablePanelModel addressModel = new AddressEditablePanelModel();
+	private AddressEditablePanelModel addressModel;
 
 	private Form<?> supplierRegistrationForm;
 
 	public SupplierRegistrationPage(PageParameters parameters) {
 		super(parameters);
+	}
 
+	@Override
+	public void renderPageBodyContent(PageParameters parameters) {
 		// Set the default country as INDIA. As the application will only run
 		// for India
+		addressModel = new AddressEditablePanelModel();
 		addressModel.setCountry("INDIA");
 		addressModel.setCountryCode("IN");
 
 		add(new FeedbackPanel("feedback"));
 
-		supplierRegistrationForm = new Form<Void>(
-				"supplierRegistrationForm") {
+		supplierRegistrationForm = new Form<Void>("supplierRegistrationForm") {
 
 			@Override
 			public void onSubmit() {
@@ -68,29 +68,29 @@ public class SupplierRegistrationPage extends SecureAppBasePage {
 						.getCountry());
 				supplier.setPrimaryAddressCountyCode(addrVMList.get(0)
 						.getCountyCode());
-				supplier.setPrimaryAddressCounty(addrVMList.get(0)
-						.getCounty());
-				
-				//Now add the Supplier in the DataBase
+				supplier.setPrimaryAddressCounty(addrVMList.get(0).getCounty());
+
+				// Now add the Supplier in the DataBase
+				ISupplierDBService suppDbsrv = BusinessServiceImpl
+						.getInstance().getSupplierDBServiceInstance();
 				supplier = suppDbsrv.put(supplier);
 
 				// Direct the customer to Supplier detail page
 
 				PageParameters pars = new PageParameters();
-				pars.put(SupplierDetailPage.SUPPLIER_OBJECT,
-						supplier);
+				pars.put(SupplierDetailPage.SUPPLIER_OBJECT, supplier);
 				setResponsePage(new SupplierDetailPage(pars));
 			}
 
 		};
 		add(supplierRegistrationForm);
 
-		supplierRegistrationForm.add(new Label("supplierNameLabel",
-				new Model("Supplier Name")));
+		supplierRegistrationForm.add(new Label("supplierNameLabel", new Model(
+				"Supplier Name")));
 
 		TextField<String> supplierNameTxt = new TextField<String>(
-				"supplierName", new PropertyModel(this,
-						"supplier.supplierName"));
+				"supplierName",
+				new PropertyModel(this, "supplier.supplierName"));
 		supplierRegistrationForm.add(supplierNameTxt);
 		AppOpertionalUtility.prepareFormComponents(supplierNameTxt, true,
 				"Supplier's Name", 1, 150, true);
