@@ -1,6 +1,6 @@
 package biz.storebiz.db.entity.uniqueid;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2011-07-17 21:03:12")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2011-07-27 20:55:07")
 /** */
 public final class ManufacturerUniqueIdRegistryMeta extends org.slim3.datastore.ModelMeta<biz.storebiz.db.entity.uniqueid.ManufacturerUniqueIdRegistry> {
 

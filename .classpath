@@ -9,10 +9,10 @@
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-simple-1.6.1.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/slim3-1.0.11.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/wicket-1.4.17.jar" sourcepath="/data/app/jars/apache-wicket-1.4.17/src/wicket/src"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/wicket-extensions-1.4.17.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/xstream-1.3.1.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/simple-xml-2.5.3.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/slim3-1.0.12.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

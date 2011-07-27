@@ -34,6 +34,9 @@ $(function(){
 		<div class="header" id="header">
 			<label>Easy Store Application </label> <label wicket:id="organizationName">Organization Name</label>
 		</div>
+		<div id="userPanel" align="right">
+			<a href="#" wicket:id="accessLink"><label wicket:id="accessLinkLabel"></label> </a>
+		</div>
 		<div id="container">
 		<wicket:link>	
 				<ul>
@@ -58,7 +61,7 @@ $(function(){
 					</li>
 				</ul>
 			</wicket:link>
-		</div>
+		</div>		
 	</header>
 	<br>
 	<div wicket:id="appFeedback">Main Feedback</div>

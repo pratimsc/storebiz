@@ -1,6 +1,6 @@
 package biz.storebiz.db.entity.common;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2011-07-17 21:03:14")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2011-07-27 20:55:10")
 /** */
 public final class CountyMeta extends org.slim3.datastore.ModelMeta<biz.storebiz.db.entity.common.County> {
 

@@ -9,6 +9,7 @@ import org.slim3.datastore.Model;
 import org.slim3.datastore.ModificationDate;
 
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.users.User;
 
 import biz.storebiz.db.IStorebizSerializableEntity;
 @Model
@@ -20,6 +21,7 @@ public class AppUser implements IStorebizSerializableEntity {
 	
 	@Attribute(primaryKey=true)
 	private Key userKey;
+	private User googleUser;
 	private String userId;
 	private String userName;
 	private List<String> roles;
@@ -33,20 +35,17 @@ public class AppUser implements IStorebizSerializableEntity {
 	private Date creationDate;
 	@Attribute(listener = ModificationDate.class)
 	private Date lastModificationDate;
-	@Override
-	public String toString() {
-		return "AppUser [userKey=" + userKey + ", userId=" + userId
-				+ ", userName=" + userName + ", roles=" + roles + ", status="
-				+ status + ", registrationDate=" + registrationDate
-				+ ", registrationExpiryDate=" + registrationExpiryDate
-				+ ", creationDate=" + creationDate + ", lastModificationDate="
-				+ lastModificationDate + "]";
-	}
 	public Key getUserKey() {
 		return userKey;
 	}
 	public void setUserKey(Key userKey) {
 		this.userKey = userKey;
+	}
+	public User getGoogleUser() {
+		return googleUser;
+	}
+	public void setGoogleUser(User googleUser) {
+		this.googleUser = googleUser;
 	}
 	public String getUserId() {
 		return userId;
@@ -96,6 +95,13 @@ public class AppUser implements IStorebizSerializableEntity {
 	public void setLastModificationDate(Date lastModificationDate) {
 		this.lastModificationDate = lastModificationDate;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return String
+				.format("AppUser [userKey=%s, googleUser=%s, userId=%s, userName=%s, roles=%s, status=%s, registrationDate=%s, registrationExpiryDate=%s, creationDate=%s, lastModificationDate=%s]",
+						userKey, googleUser, userId, userName, roles, status,
+						registrationDate, registrationExpiryDate, creationDate,
+						lastModificationDate);
+	}
+		
 }

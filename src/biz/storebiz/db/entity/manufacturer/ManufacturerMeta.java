@@ -1,6 +1,6 @@
 package biz.storebiz.db.entity.manufacturer;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2011-07-17 21:03:13")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2011-07-27 20:55:09")
 /** */
 public final class ManufacturerMeta extends org.slim3.datastore.ModelMeta<biz.storebiz.db.entity.manufacturer.Manufacturer> {
 
