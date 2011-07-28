@@ -10,6 +10,9 @@ import org.apache.wicket.session.ISessionStore;
 import org.apache.wicket.util.lang.PackageName;
 
 import biz.nirvani.wicket.app.session.OpenIdSession;
+import biz.nirvani.wicket.app.session.page.OpenIdLoginPage;
+import biz.nirvani.wicket.app.session.page.OpenIdLogoutPage;
+import biz.storebiz.app.page.AppBasePage;
 import biz.storebiz.app.page.ShopManagementHomePage;
 import biz.storebiz.app.security.StorebizAuthorizationStrategy;
 
@@ -29,7 +32,12 @@ public class ShopManagementApp extends WebApplication {
 	@Override
 	public void init(){
 		getResourceSettings().setResourcePollFrequency(null);
-		mount("storebiz",PackageName.forClass(ShopManagementApp.class));
+		mountBookmarkablePage("/secure/login", OpenIdLoginPage.class);
+		mountBookmarkablePage("/secure/logout", OpenIdLogoutPage.class);
+		
+		mount("/secure",PackageName.forClass(OpenIdSession.class));
+		mount("/storebiz",PackageName.forClass(AppBasePage.class));
+		mountBookmarkablePage("/storebiz/base", AppBasePage.class);
 		StorebizAuthorizationStrategy securityStrategy = new StorebizAuthorizationStrategy();
 		getSecuritySettings().setAuthorizationStrategy(securityStrategy);
 		getSecuritySettings().setUnauthorizedComponentInstantiationListener(securityStrategy);

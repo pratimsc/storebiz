@@ -29,14 +29,15 @@ import com.google.appengine.repackaged.com.google.common.collect.Ordering;
 
 public class ManufacturerListingPage extends SecurePage {
 	private String _manSrchTxt;
-	private List<IColumn<ManufacturerViewModel>> _columns = new ArrayList<IColumn<ManufacturerViewModel>>();
-	private ManufacturerProvider _manProvider = new ManufacturerProvider();
+	private List<IColumn<ManufacturerViewModel>> _columns;
+	private ManufacturerProvider _manProvider;
 
 	public ManufacturerListingPage(PageParameters parameters) {
 		super(parameters);
 	}
 
 	private void prepareDataListViewColumns() {
+		_columns= new ArrayList<IColumn<ManufacturerViewModel>>();
 		_columns.add(new ClickablePropertyColumn<ManufacturerViewModel>(Model
 				.of("Manufacturer Id"), "manufacturerId", "manufacturerId") {
 
@@ -140,6 +141,7 @@ public class ManufacturerListingPage extends SecurePage {
 
 	@Override
 	public void renderPageBodyContent(PageParameters parameters) {
+		_manProvider  = new ManufacturerProvider();
 		Form manSrchFrm = new Form("manufacturerSearch") {
 
 			@Override
