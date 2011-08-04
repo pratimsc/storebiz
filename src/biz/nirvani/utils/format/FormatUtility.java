@@ -35,12 +35,4 @@ public class FormatUtility {
 			return String.format("%1$#" + width + "." + width + "s", value);
 		}
 	}
-
-	public static void main(String[] args) {
-		System.out.println(">" + padRight("Check123456", 16, true) + "<");
-		System.out.println(">" + padRight("Check123456", 10) + "<");
-		System.out.println(">" + padLeft("Check123456", 10, true) + "<");
-
-		System.out.println(">" + padLeft("Check123456", 10) + "<");
-	}
 }
