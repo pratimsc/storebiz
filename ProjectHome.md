@@ -1,0 +1,2 @@
+Always on Web UI for retail store. Its to get rid of classic fat client interfaces or internal hosted web application interfaces. Instead, carry out all operations over the cloud.
+Install the product on cloud (google apps) and allow cloud provider to take care of the rest.
